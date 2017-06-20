@@ -2,14 +2,11 @@
 
 angular.module('app')
     .controller('mainController', ['appService', function(appService) {
-    	var self = this;
+    	const self = this;
 
     	angular.extend(self, {
     		cargarAlumnos : function() {
-    			appService.getAlumnos().then(function(alumnos){
-    				console.log(alumnos);
-    				self.alumnos = alumnos;
-    			});
+    			appService.getAlumnos().then(alumnos=>{ self.alumnos = alumnos; });
     		},
     		alumnos       : []
     	});    	

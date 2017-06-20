@@ -1,12 +1,28 @@
-const Webpack = require('webpack');
-const path    = require('path');
+const path = require('path');
 
 module.exports = {
-	entry : './app.js',
+	entry : {
+        appprod: ['./app.js', './services/appService.js', './components/alumno/alumno.js', './controllers/appController.js']
+    },
 	output: {
 	    path: path.resolve(__dirname, './'),
-	    filename: 'app-prod.js'
+	    filename: '[name].js'
 	},
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: [/node_modules/],
+                use: [{
+                    loader: 'babel-loader',
+                    options: { presets: ['es2015'] }
+                }]
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js']
+    },
 	devServer: {
   		contentBase: path.join(__dirname, "./"),
   		compress: true,

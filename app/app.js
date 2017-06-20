@@ -1,4 +1,2 @@
-import './services/appService.js';
-import './components/alumno/alumno.js';
-import './controllers/appController.js';
+angular.module('app', []);
 
