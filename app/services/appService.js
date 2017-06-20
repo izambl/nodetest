@@ -1,4 +1,4 @@
-'use strict';
+angular.module('app', []);
 
 angular.module('app')
     .factory('appService', ['$http', function($http) {
